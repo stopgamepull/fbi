@@ -1,0 +1,894 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI - Fully Brainwashed Investor</title>
+    <link rel="shortcut icon" href="images/FBI.png" type="image/svg+xml">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Верхняя панель */
+      .top-bar {
+        background: linear-gradient(90deg, #1a1a2e, #16213e);
+        color: white;
+        padding: 10px 20px;
+        font-size: 14px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .top-bar .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .top-bar a {
+        color: #e0e0e0;
+        text-decoration: none;
+        margin: 0 12px;
+        transition: color 0.3s ease;
+        font-weight: 500;
+      }
+
+      .top-bar a:hover {
+        color: #f9c74f;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .search-bar img {
+        filter: brightness(0) invert(1);
+        width: 18px;
+        transition: transform 0.3s ease;
+      }
+
+      .search-bar img:hover {
+        transform: scale(1.2);
+      }
+
+      .search-bar input {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        width: 140px;
+      }
+
+      .search-bar input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .search-bar input:focus {
+        outline: none;
+        width: 180px;
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .search-bar button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+        transition: color 0.3s ease;
+      }
+
+      .search-bar button:hover {
+        color: #f9c74f;
+      }
+
+      /* Шапка */
+      header {
+        background: linear-gradient(rgba(0, 29, 61, 0.9), rgba(0, 29, 61, 0.9)),
+          url("https://images.unsplash.com/photo-1580828343064-fde4fc206f6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80")
+            no-repeat center;
+        background-size: cover;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 5px solid #f9c74f;
+      }
+
+      .logo {
+        position: relative;
+        z-index: 2;
+      }
+
+      .logo img {
+        height: 80px;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+      }
+
+      header h1 {
+        color: white;
+        font-size: 24px;
+        margin-top: 15px;
+        letter-spacing: 1.5px;
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        font-weight: 300;
+      }
+
+      /* Hero-секция */
+      .hero {
+        background: linear-gradient(
+            rgba(0, 29, 61, 0.85),
+            rgba(0, 29, 61, 0.85)
+          ),
+          url("https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80")
+            no-repeat center;
+        background-size: cover;
+        position: relative;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        padding: 40px;
+        max-width: 700px;
+      }
+
+      .hero-content h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.3;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content button {
+        background: #f9c74f;
+        color: #001d3d;
+        border: none;
+        padding: 14px 35px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-content button:hover {
+        background: #f8961e;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Секция создания карточки */
+      .card-creator {
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #001d3d;
+      }
+
+      .card-creator h3 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #001d3d;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .card-creator h3::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background: #f9c74f;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #001d3d;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #f9c74f;
+        box-shadow: 0 0 0 3px rgba(249, 199, 79, 0.2);
+      }
+
+      .form-group textarea {
+        height: 120px;
+        resize: vertical;
+      }
+
+      .photo-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 0;
+      }
+
+      .photo-upload label {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #001d3d;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .photo-upload label:hover {
+        background: #000814;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .photo-upload input[type="file"] {
+        display: none;
+      }
+
+      .preview-container {
+        width: 180px;
+        height: 180px;
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #f8f9fa;
+        position: relative;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 100%;
+        display: none;
+        object-fit: cover;
+      }
+
+      .preview-container span {
+        color: #666;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        background: #001d3d;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .submit-btn:hover {
+        background: #000814;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Карточка агента */
+      .agent-card {
+        max-width: 400px;
+        margin: 60px auto;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        display: none;
+        position: relative;
+        border: 1px solid #ddd;
+      }
+
+      .card-header {
+        background: linear-gradient(90deg, #001d3d, #003566);
+        color: white;
+        padding: 25px 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      .card-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("images/diagmonds-light.png");
+        opacity: 0.1;
+      }
+
+      .card-header h3 {
+        font-size: 22px;
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+        position: relative;
+        text-transform: uppercase;
+      }
+
+      .card-header p {
+        font-size: 14px;
+        opacity: 0.9;
+        letter-spacing: 0.5px;
+        position: relative;
+      }
+
+      .card-body {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f8f9fa;
+      }
+
+      .agent-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid white;
+        overflow: hidden;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+        background: #ddd;
+      }
+
+      .agent-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .agent-info {
+        width: 100%;
+        margin-bottom: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-row {
+        display: flex;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .info-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .info-label {
+        flex: 1;
+        font-weight: 600;
+        color: #001d3d;
+        font-size: 14px;
+      }
+
+      .info-value {
+        flex: 2;
+        font-weight: 500;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .share-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 25px;
+        background: #1da1f2;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        margin-top: 25px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .share-btn:hover {
+        background: #0d8ecf;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .share-btn i {
+        margin-right: 8px;
+        font-size: 18px;
+      }
+
+      .badge {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background: #e63946;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        z-index: 2;
+        transform: rotate(15deg);
+      }
+
+      /* Секция "I Want To" */
+      .i-want-to {
+        max-width: 1200px;
+        margin: 80px auto;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .i-want-to h3 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #001d3d;
+        letter-spacing: 0.5px;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .i-want-to h3::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background: #f9c74f;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border-top: 3px solid #001d3d;
+      }
+
+      .option:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .option img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .option:hover img {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .option a {
+        color: #001d3d;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .option a:hover {
+        color: #f8961e;
+      }
+
+      /* Футер */
+      footer {
+        background: linear-gradient(90deg, #1a1a2e, #16213e);
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+        font-size: 15px;
+        margin-top: 60px;
+      }
+
+      footer .container {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      footer a {
+        color: #e0e0e0;
+        text-decoration: none;
+        margin: 0 12px;
+        transition: color 0.3s ease;
+        font-weight: 500;
+      }
+
+      footer a:hover {
+        color: #f9c74f;
+      }
+
+      footer p {
+        margin: 15px 0;
+        opacity: 0.9;
+      }
+
+      .footer-links {
+        margin-bottom: 25px;
+      }
+
+      .footer-social {
+        margin-top: 25px;
+      }
+
+      .footer-social a {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 20px;
+      }
+
+      .cardCon {
+        margin: 0 auto;
+        width: 400px;
+        height: 400px;
+      }
+
+      .cardCon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+  </head>
+  <body>
+    <!-- Верхняя панель -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="links">
+          <a href="#">HOME</a>
+          <a href="#">AGENTS</a>
+          <a href="#">TRAINING</a>
+          <a href="#">MISSIONS</a>
+          <a href="#">REPORTS</a>
+          <a href="#">RESOURCES</a>
+          <a href="#">ABOUT</a>
+        </div>
+        <div class="search-bar">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/FB_investor"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <input type="text" placeholder="Search FBI">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Шапка -->
+    <header>
+      <div class="logo">
+        <img src="images/pngwing.png" alt="FBI Logo">
+      </div>
+      <h1>FULLY BRAINWASHED INVESTOR</h1>
+    </header>
+
+    <!-- Hero-секция -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>OFFICIAL AGENT CREDENTIALS</h2>
+        <p>
+          Generate your personalized FBI (Fully Brainwashed Investor)
+          identification card and join our elite financial enforcement task
+          force.
+        </p>
+        <button onclick="document.getElementById('card-creator').scrollIntoView({behavior: 'smooth'})">
+          <i class="fas fa-id-card"></i> CREATE YOUR ID
+        </button>
+      </div>
+    </section>
+    <div class="cardCon">
+      <img src="images/fbitwe.png" alt="">
+    </div>
+    <!-- Секция создания карточки -->
+    <section class="card-creator" id="card-creator">
+      <h3>AGENT CREDENTIAL APPLICATION</h3>
+      <form id="agent-form">
+        <div class="form-group">
+          <label for="agent-name"><i class="fas fa-user"></i> FULL NAME</label>
+          <input type="text" id="agent-name" required="" placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label for="agent-id"><i class="fas fa-fingerprint"></i> AGENT ID</label>
+          <input type="text" id="agent-id" required="" placeholder="Enter your unique agent ID">
+        </div>
+
+        <div class="form-group">
+          <label for="agent-rank"><i class="fas fa-star"></i> RANK</label>
+          <select id="agent-rank" required="">
+            <option value="">Select your clearance level</option>
+            <option value="Junior Agent">Junior Agent</option>
+            <option value="Special Agent">Special Agent</option>
+            <option value="Senior Agent">Senior Agent</option>
+            <option value="Master Agent">Master Agent</option>
+            <option value="Director">Director</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="agent-specialty"><i class="fas fa-bullseye"></i> SPECIALTY</label>
+          <input type="text" id="agent-specialty" required="" placeholder="Your financial enforcement specialty">
+        </div>
+
+        <div class="form-group">
+          <label for="agent-mission"><i class="fas fa-crosshairs"></i> MISSION STATEMENT</label>
+          <textarea id="agent-mission" required="" placeholder="Describe your financial indoctrination mission"></textarea>
+        </div>
+
+        <div class="photo-upload">
+          <label for="agent-photo"><i class="fas fa-camera"></i> UPLOAD OFFICIAL PHOTO</label>
+          <input type="file" id="agent-photo" accept="image/*">
+          <div class="preview-container">
+            <img id="photo-preview" src="#" alt="Photo preview">
+            <span>Official portrait required<br>(Square format recommended)</span>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-id-badge"></i> GENERATE CREDENTIALS
+        </button>
+      </form>
+    </section>
+
+    <!-- Карточка агента -->
+    <div class="agent-card" id="agent-card">
+      <div class="badge">FBI<br>AGENT</div>
+      <div class="card-header">
+        <h3 id="card-name">JOHN DOE</h3>
+        <p>FULLY BRAINWASHED INVESTOR DIVISION</p>
+      </div>
+      <div class="card-body">
+        <div class="agent-photo">
+          <img id="card-photo" src="images/removed.png" alt="Agent Photo">
+        </div>
+        <div class="agent-info">
+          <div class="info-row">
+            <div class="info-label">AGENT ID:</div>
+            <div class="info-value" id="card-id">FBID-XXXX-XXXX</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">CLEARANCE:</div>
+            <div class="info-value" id="card-rank">LEVEL 4</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">SPECIALTY:</div>
+            <div class="info-value" id="card-specialty">
+              MARKET INDOCTRINATION
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">MISSION:</div>
+            <div class="info-value" id="card-mission">
+              ENFORCE FINANCIAL DOGMA THROUGH SYSTEMATIC BRAINWASHING
+            </div>
+          </div>
+        </div>
+        <a href="#" class="share-btn" id="share-btn" target="_blank">
+          <i class="fab fa-twitter"></i> SHARE CREDENTIALS
+        </a>
+      </div>
+    </div>
+
+    <!-- Секция "I Want To" -->
+    <section class="i-want-to">
+      <h3>AGENT RESOURCES</h3>
+      <div class="options">
+        <div class="option">
+          <img src="images/removed.png" alt="Training Icon">
+          <a href="#">AGENT TRAINING PROGRAM</a>
+        </div>
+        <div class="option">
+          <img src="images/removed.png" alt="Manual Icon">
+          <a href="#">INDOCTRINATION MANUAL</a>
+        </div>
+        <div class="option">
+          <img src="images/removed.png" alt="Report Icon">
+          <a href="#">SUBMIT FIELD REPORT</a>
+        </div>
+        <div class="option">
+          <img src="images/removed.png" alt="Badge Icon">
+          <a href="#">REQUEST BADGE RENEWAL</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">About FBI</a>
+          <a href="#">Careers</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Contact</a>
+          <a href="#">FOIA</a>
+          <a href="#">No Fear Act</a>
+        </div>
+        <p>FULLY BRAINWASHED INVESTOR DIVISION</p>
+        <p>OFFICIAL AGENT CREDENTIALING SYSTEM</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>
+          � 2025 FBI - Fully Brainwashed Investor Division. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Обработка загрузки фото
+      document
+        .getElementById("agent-photo")
+        .addEventListener("change", function (e) {
+          const previewContainer = document.querySelector(".preview-container");
+          const preview = document.getElementById("photo-preview");
+          const label = previewContainer.querySelector("span");
+
+          if (this.files && this.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              preview.src = e.target.result;
+              preview.style.display = "block";
+              label.style.display = "none";
+            };
+
+            reader.readAsDataURL(this.files[0]);
+          }
+        });
+
+      // Генерация карточки
+      document
+        .getElementById("agent-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Получаем значения из формы
+          const name = document.getElementById("agent-name").value;
+          const id = document.getElementById("agent-id").value;
+          const rank = document.getElementById("agent-rank").value;
+          const specialty = document.getElementById("agent-specialty").value;
+          const mission = document.getElementById("agent-mission").value;
+
+          // Устанавливаем значения в карточку
+          document.getElementById("card-name").textContent = name.toUpperCase();
+          document.getElementById("card-id").textContent =
+            "FBID-" + id.toUpperCase().replace(/\s/g, "-");
+          document.getElementById("card-rank").textContent = rank.toUpperCase();
+          document.getElementById("card-specialty").textContent =
+            specialty.toUpperCase();
+          document.getElementById("card-mission").textContent =
+            mission.toUpperCase();
+
+          // Устанавливаем фото
+          const fileInput = document.getElementById("agent-photo");
+          if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("card-photo").src = e.target.result;
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+          }
+
+          // Показываем карточку
+          document.getElementById("agent-card").style.display = "block";
+
+          // Прокручиваем к карточке
+          document
+            .getElementById("agent-card")
+            .scrollIntoView({ behavior: "smooth" });
+
+          // Обновляем ссылку для твита
+          const tweetText = `I've been officially credentialed as a Fully Brainwashed Investor Agent! Meet ${name.toUpperCase()}, ${rank.toUpperCase()} specializing in ${specialty}. Mission: "${mission.substring(
+            0,
+            60
+          )}..." #FBIAgent`;
+          const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+            tweetText
+          )}`;
+          document.getElementById("share-btn").href = tweetUrl;
+        });
+    </script>
+  
+
+</body></html>
